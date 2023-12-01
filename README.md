@@ -3,10 +3,12 @@
 </div>
 
 <div align="center">
+  <img alt="BE" src="https://img.shields.io/badge/BE-%23424242.svg?style=flat-square&logo=&logoColor=%23C6F7E9" />
   <img alt="Java" src="https://img.shields.io/badge/Java-%23C6F7E9.svg?style=flat-square&logo=&logoColor=%23424242" />
   <img alt="Spring Boot" src="https://img.shields.io/badge/Spring%20Boot-%23C6F7E9.svg?style=flat-square&logo=&logoColor=%23424242" />
   <img alt="MyBatis" src="https://img.shields.io/badge/MyBatis-%23C6F7E9.svg?style=flat-square&logo=&logoColor=%23424242" />
   <br>
+  <img alt="FE" src="https://img.shields.io/badge/FE-%23424242.svg?style=flat-square&logo=&logoColor=%23C6F7E9" />
   <img alt="HTML" src="https://img.shields.io/badge/HTML-%23C6F7E9.svg?style=flat-square&logo=&logoColor=%23424242" />
   <img alt="CSS" src="https://img.shields.io/badge/CSS-%23C6F7E9.svg?style=flat-square&logo=&logoColor=%23424242" />
   <img alt="JavaScript" src="https://img.shields.io/badge/JavaScript-%23C6F7E9.svg?style=flat-square&logo=&logoColor=%23424242" />
