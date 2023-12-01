@@ -1,0 +1,80 @@
+CREATE TABLE user
+(
+    `id`             BIGINT(20) NOT NULL AUTO_INCREMENT COMMENT '계정 번호',
+    `email`          VARCHAR(100) NOT NULL COMMENT '계정 이메일',
+    `password`       VARCHAR(100) NOT NULL COMMENT '계정 비밀번호',
+    `name`           VARCHAR(50) NOT NULL COMMENT '계정 이름',
+    `phone`          VARCHAR(50) NOT NULL COMMENT '계정 연락처',
+    `nickname`       VARCHAR(50) NOT NULL COMMENT '계정 닉네임',
+    `user_role_type` VARCHAR(50) NOT NULL DEFAULT 'ROLE_USER' COMMENT '계정 권한',
+    `user_status`    VARCHAR(50) NOT NULL DEFAULT 'ENABLED' COMMENT '계정 활성 상태',
+    `created_at`     TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '계정 등록 일자',
+    `updated_at`     TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '계정 로그인 일자',
+    CONSTRAINT pk_user PRIMARY KEY (id),
+    UNIQUE KEY uk_user_email (email),
+    UNIQUE KEY uk_user_phone (phone),
+    UNIQUE KEY uk_user_nickname (nickname)
+);
+
+CREATE TABLE post
+(
+    `id`            BIGINT(20) NOT NULL AUTO_INCREMENT COMMENT '게시글 번호',
+    `user_nickname` VARCHAR(50) NOT NULL COMMENT '게시글 작성자',
+    `post_type`     VARCHAR(50) NOT NULL COMMENT '게시글 종류',
+    `title`         VARCHAR(100) NOT NULL COMMENT '게시글 제목',
+    `content`       VARCHAR(500) NOT NULL COMMENT '게시글 내용',
+    `comment_count` INT NOT NULL DEFAULT 0 COMMENT '게시글 댓글수',
+    `view_count`    INT NOT NULL DEFAULT 0 COMMENT '게시글 조회수',
+    `like_count`    INT NOT NULL DEFAULT 0 COMMENT '게시글 추천수',
+    `created_at`    TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '게시글 등록 일자',
+    `updated_at`    TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '게시글 수정 일자',
+    CONSTRAINT pk_post PRIMARY KEY (id),
+    FOREIGN KEY (user_nickname) REFERENCES user (nickname) ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+CREATE TABLE comment
+(
+    `id`            BIGINT(20) NOT NULL AUTO_INCREMENT COMMENT '댓글 번호',
+    `post_id`       BIGINT(20) NOT NULL COMMENT '게시글 번호',
+    `user_nickname` VARCHAR(50) NOT NULL COMMENT '댓글 작성자',
+    `content`       VARCHAR(100) NOT NULL COMMENT '댓글 내용',
+    `like_count`    INT NOT NULL DEFAULT 0 COMMENT '댓글 추천수',
+    `created_at`    TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '댓글 등록 일자',
+    `updated_at`    TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '댓글 수정 일자',
+    CONSTRAINT pk_comment PRIMARY KEY (id),
+    FOREIGN KEY (post_id) REFERENCES post (id) ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY (user_nickname) REFERENCES user (nickname) ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+CREATE TABLE post_like
+(
+    `post_id`       BIGINT(20) NOT NULL COMMENT '게시글 번호',
+    `user_nickname` VARCHAR(50) NOT NULL COMMENT '게시글 추천자',
+    CONSTRAINT pk_post_like PRIMARY KEY (post_id, user_nickname),
+    FOREIGN KEY (post_id) REFERENCES post (id) ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY (user_nickname) REFERENCES user (nickname) ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+CREATE TABLE comment_like
+(
+    `post_id`       BIGINT(20) NOT NULL COMMENT '게시글 번호',
+    `comment_id`    BIGINT(20) NOT NULL COMMENT '댓글 번호',
+    `user_nickname` VARCHAR(50) NOT NULL COMMENT '댓글 추천자',
+    CONSTRAINT pk_comment_like PRIMARY KEY (post_id, comment_id, user_nickname),
+    FOREIGN KEY (post_id) REFERENCES post (id) ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY (comment_id) REFERENCES comment (id) ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY (user_nickname) REFERENCES user (nickname) ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+CREATE TABLE chat_room
+(
+    `id`            BIGINT(20) NOT NULL AUTO_INCREMENT COMMENT '채팅방 번호',
+    `name`          VARCHAR(100) NOT NULL COMMENT '채팅방 이름',
+    `user_nickname` VARCHAR(50) NOT NULL COMMENT '채팅방 개설자',
+    `maximum`       INT NOT NULL  DEFAULT 2 COMMENT '채팅방 정원',
+    `created_at`    TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '채팅방 개설 일자',
+    `updated_at`    TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '채팅방 수정 일자',
+    CONSTRAINT pk_chat_room PRIMARY KEY (id),
+    UNIQUE KEY uk_chat_room_name (name),
+    FOREIGN KEY (user_nickname) REFERENCES user (nickname) ON UPDATE CASCADE ON DELETE CASCADE
+);

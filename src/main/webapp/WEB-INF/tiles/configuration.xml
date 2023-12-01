@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+    <!-- 레이아웃 1 -->
+    <definition name="fullLayout" template="/WEB-INF/tiles/layout.jsp">
+        <put-attribute name="header" value="/WEB-INF/views/component/header.jsp"/>
+        <put-attribute name="title" value="/WEB-INF/views/component/title.jsp"/>
+        <put-attribute name="side" value="/WEB-INF/views/component/side.jsp"/>
+        <put-attribute name="menu" value="/WEB-INF/views/component/menu.jsp"/>
+        <put-attribute name="content" value=""/>
+        <put-attribute name="footer" value="/WEB-INF/views/component/footer.jsp"/>
+    </definition>
+
+    <!-- 계정 페이지 레이아웃 -->
+    <definition name="userLayout" template="/WEB-INF/tiles/layout.jsp">
+        <put-attribute name="header" value="/WEB-INF/views/component/header.jsp"/>
+        <put-attribute name="side" value="/WEB-INF/views/component/side.jsp"/>
+        <put-attribute name="content" value=""/>
+        <put-attribute name="footer" value="/WEB-INF/views/component/footer.jsp"/>
+    </definition>
+
+    <!-- 게시판 페이지 레이아웃 -->
+    <definition name="boardLayout" template="/WEB-INF/tiles/layout.jsp">
+        <put-attribute name="header" value="/WEB-INF/views/component/header.jsp"/>
+        <put-attribute name="title" value="/WEB-INF/views/component/title.jsp"/>
+        <put-attribute name="side" value="/WEB-INF/views/component/side.jsp"/>
+        <put-attribute name="menu" value="/WEB-INF/views/component/menu.jsp"/>
+        <put-attribute name="content" value=""/>
+        <put-attribute name="footer" value="/WEB-INF/views/component/footer.jsp"/>
+    </definition>
+
+    <!-- 채팅 페이지 레이아웃 -->
+    <definition name="chatLayout" template="/WEB-INF/tiles/layout.jsp">
+        <put-attribute name="header" value="/WEB-INF/views/component/header.jsp"/>
+        <put-attribute name="title" value="/WEB-INF/views/component/title.jsp"/>
+        <put-attribute name="side" value="/WEB-INF/views/component/side.jsp"/>
+        <put-attribute name="menu" value="/WEB-INF/views/component/menu.jsp"/>
+        <put-attribute name="content" value=""/>
+        <put-attribute name="footer" value="/WEB-INF/views/component/footer.jsp"/>
+    </definition>
+
+    <!-- 에러 페이지 레이아웃 -->
+    <definition name="errorLayout" template="/WEB-INF/tiles/layout.jsp">
+        <put-attribute name="header" value="/WEB-INF/views/component/header.jsp"/>
+        <put-attribute name="side" value="/WEB-INF/views/component/side.jsp"/>
+        <put-attribute name="content" value=""/>
+        <put-attribute name="footer" value="/WEB-INF/views/component/footer.jsp"/>
+    </definition>
+
+    <!-- 계정 페이지 패턴 정의 -->
+    <definition name="/user/*" extends="userLayout">
+        <put-attribute name="content" value="/WEB-INF/views/user/{1}.jsp"/>
+    </definition>
+
+    <!-- 게시판 페이지 패턴 정의 -->
+    <definition name="/board/*" extends="boardLayout">
+        <put-attribute name="content" value="/WEB-INF/views/board/{1}.jsp"/>
+    </definition>
+    <definition name="/board/*/*" extends="boardLayout">
+        <put-attribute name="content" value="/WEB-INF/views/board/{1}/{2}.jsp"/>
+    </definition>
+    <definition name="/board/*/*/*" extends="boardLayout">
+        <put-attribute name="content" value="/WEB-INF/views/board/{1}/{2}/{3}.jsp"/>
+    </definition>
+
+    <!-- 채팅 페이지 패턴 정의 -->
+    <definition name="/chat/*" extends="chatLayout">
+        <put-attribute name="content" value="/WEB-INF/views/chat/{1}.jsp"/>
+    </definition>
+    <definition name="/chat/*/*" extends="chatLayout">
+        <put-attribute name="content" value="/WEB-INF/views/chat/{1}/{2}.jsp"/>
+    </definition>
+    <definition name="/chat/*/*/*" extends="chatLayout">
+        <put-attribute name="content" value="/WEB-INF/views/chat/{1}/{2}/{3}.jsp"/>
+    </definition>
+
+    <!-- 에러 페이지 정의 -->
+    <definition name="/error/*" extends="errorLayout">
+        <put-attribute name="content" value="/WEB-INF/views/error/{1}.jsp"/>
+    </definition>
+
+    <!-- 기본 페이지 정의-->
+    <definition name="*" extends="fullLayout">
+        <put-attribute name="content" value="/WEB-INF/views/{1}.jsp"/>
+    </definition>
+    <definition name="*/*" extends="fullLayout">
+        <put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp"/>
+    </definition>
+    <definition name="*/*/*" extends="fullLayout">
+        <put-attribute name="content" value="/WEB-INF/views/{1}/{2}/{3}.jsp" />
+    </definition>
+</tiles-definitions>

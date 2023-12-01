@@ -1,0 +1,72 @@
+admin@test.com, test123!
+
+1) 테스트용 계정 추가하기
+INSERT INTO user (email, password, name, phone, nickname, user_role_type, user_status)
+VALUES ('anonymous@test.com', '$2a$10$T9JRu3Yu8ke/41Vl/Jd0aeGfq97wHBbpcU04GG7zDWOKjwBgti8aC', '익명', '00000000000', '익명', 'ROLE_USER', 'DISABLED');
+
+INSERT INTO user (email, password, name, phone, nickname, user_role_type)
+VALUES ('user1@test.com', '$2a$10$T9JRu3Yu8ke/41Vl/Jd0aeGfq97wHBbpcU04GG7zDWOKjwBgti8aC', '사용자', '01000000001', '사용자1', 'ROLE_USER');
+
+INSERT INTO user (email, password, name, phone, nickname, user_role_type)
+VALUES ('user2@test.com', '$2a$10$T9JRu3Yu8ke/41Vl/Jd0aeGfq97wHBbpcU04GG7zDWOKjwBgti8aC', '사용자', '01000000002', '사용자2', 'ROLE_USER');
+
+INSERT INTO user (email, password, name, phone, nickname, user_role_type)
+VALUES ('user3@test.com', '$2a$10$T9JRu3Yu8ke/41Vl/Jd0aeGfq97wHBbpcU04GG7zDWOKjwBgti8aC', '사용자', '01000000003', '사용자3', 'ROLE_USER');
+
+INSERT INTO user (email, password, name, phone, nickname, user_role_type)
+VALUES ('user4@test.com', '$2a$10$T9JRu3Yu8ke/41Vl/Jd0aeGfq97wHBbpcU04GG7zDWOKjwBgti8aC', '사용자', '01000000004', '사용자4', 'ROLE_USER');
+
+INSERT INTO user (email, password, name, phone, nickname, user_role_type)
+VALUES ('user5@test.com', '$2a$10$T9JRu3Yu8ke/41Vl/Jd0aeGfq97wHBbpcU04GG7zDWOKjwBgti8aC', '사용자', '01000000005', '사용자5', 'ROLE_USER');
+
+2) 테스트용 게시글 추가하기
+INSERT INTO post (user_nickname, post_type, title, content) VALUES ('사용자1', 'TALK', '게시글1', '게시글 테스트a');
+INSERT INTO post (user_nickname, post_type, title, content) VALUES ('사용자2', 'TALK', '게시글2', '게시글 테스트b');
+INSERT INTO post (user_nickname, post_type, title, content) VALUES ('사용자3', 'TALK', '게시글3', '게시글 테스트c');
+INSERT INTO post (user_nickname, post_type, title, content) VALUES ('사용자4', 'TALK', '게시글4', '게시글 테스트c');
+INSERT INTO post (user_nickname, post_type, title, content) VALUES ('사용자5', 'TALK', '게시글5', '게시글 테스트c');
+INSERT INTO post (user_nickname, post_type, title, content) VALUES ('사용자1', 'TALK', '게시글6', '게시글 테스트a');
+INSERT INTO post (user_nickname, post_type, title, content) VALUES ('사용자2', 'TALK', '게시글7', '게시글 테스트b');
+INSERT INTO post (user_nickname, post_type, title, content) VALUES ('사용자3', 'TALK', '게시글8', '게시글 테스트c');
+INSERT INTO post (user_nickname, post_type, title, content) VALUES ('사용자4', 'TALK', '게시글9', '게시글 테스트c');
+INSERT INTO post (user_nickname, post_type, title, content) VALUES ('사용자5', 'TALK', '게시글10', '게시글 테스트c');
+INSERT INTO post (user_nickname, post_type, title, content) VALUES ('사용자1', 'TALK', '게시글11', '게시글 테스트a');
+INSERT INTO post (user_nickname, post_type, title, content) VALUES ('사용자2', 'TALK', '게시글12', '게시글 테스트b');
+INSERT INTO post (user_nickname, post_type, title, content) VALUES ('사용자3', 'TALK', '게시글13', '게시글 테스트c');
+INSERT INTO post (user_nickname, post_type, title, content) VALUES ('사용자4', 'TALK', '게시글14', '게시글 테스트c');
+INSERT INTO post (user_nickname, post_type, title, content) VALUES ('사용자5', 'TALK', '게시글15', '게시글 테스트c');
+INSERT INTO post (user_nickname, post_type, title, content) VALUES ('사용자1', 'TALK', '게시글16', '게시글 테스트a');
+INSERT INTO post (user_nickname, post_type, title, content) VALUES ('사용자2', 'TALK', '게시글17', '게시글 테스트b');
+INSERT INTO post (user_nickname, post_type, title, content) VALUES ('사용자3', 'TALK', '게시글18', '게시글 테스트c');
+INSERT INTO post (user_nickname, post_type, title, content) VALUES ('사용자4', 'TALK', '게시글19', '게시글 테스트c');
+INSERT INTO post (user_nickname, post_type, title, content) VALUES ('사용자5', 'TALK', '게시글20', '게시글 테스트c');
+INSERT INTO post (user_nickname, post_type, title, content) VALUES ('사용자1', 'TALK', '게시글21', '게시글 테스트a');
+INSERT INTO post (user_nickname, post_type, title, content) VALUES ('사용자2', 'TALK', '게시글22', '게시글 테스트b');
+INSERT INTO post (user_nickname, post_type, title, content) VALUES ('사용자3', 'TALK', '게시글23', '게시글 테스트c');
+INSERT INTO post (user_nickname, post_type, title, content) VALUES ('사용자4', 'TALK', '게시글24', '게시글 테스트c');
+INSERT INTO post (user_nickname, post_type, title, content) VALUES ('사용자5', 'TALK', '게시글25', '게시글 테스트c');
+INSERT INTO post (user_nickname, post_type, title, content) VALUES ('사용자1', 'TALK', '게시글26', '게시글 테스트a');
+INSERT INTO post (user_nickname, post_type, title, content) VALUES ('사용자2', 'TALK', '게시글27', '게시글 테스트b');
+INSERT INTO post (user_nickname, post_type, title, content) VALUES ('사용자3', 'TALK', '게시글28', '게시글 테스트c');
+INSERT INTO post (user_nickname, post_type, title, content) VALUES ('사용자4', 'TALK', '게시글29', '게시글 테스트c');
+INSERT INTO post (user_nickname, post_type, title, content) VALUES ('사용자5', 'TALK', '게시글30', '게시글 테스트c');
+INSERT INTO post (user_nickname, post_type, title, content) VALUES ('사용자1', 'TALK', '게시글31', '게시글 테스트a');
+INSERT INTO post (user_nickname, post_type, title, content) VALUES ('사용자2', 'TALK', '게시글32', '게시글 테스트b');
+INSERT INTO post (user_nickname, post_type, title, content) VALUES ('사용자3', 'TALK', '게시글33', '게시글 테스트c');
+INSERT INTO post (user_nickname, post_type, title, content) VALUES ('사용자4', 'TALK', '게시글34', '게시글 테스트c');
+INSERT INTO post (user_nickname, post_type, title, content) VALUES ('사용자5', 'TALK', '게시글35', '게시글 테스트c');
+INSERT INTO post (user_nickname, post_type, title, content) VALUES ('사용자1', 'TALK', '게시글36', '게시글 테스트a');
+INSERT INTO post (user_nickname, post_type, title, content) VALUES ('사용자2', 'TALK', '게시글37', '게시글 테스트b');
+INSERT INTO post (user_nickname, post_type, title, content) VALUES ('사용자3', 'TALK', '게시글38', '게시글 테스트c');
+INSERT INTO post (user_nickname, post_type, title, content) VALUES ('사용자4', 'TALK', '게시글39', '게시글 테스트c');
+INSERT INTO post (user_nickname, post_type, title, content) VALUES ('사용자5', 'TALK', '게시글40', '게시글 테스트c');
+INSERT INTO post (user_nickname, post_type, title, content) VALUES ('사용자1', 'TALK', '게시글41', '게시글 테스트a');
+INSERT INTO post (user_nickname, post_type, title, content) VALUES ('사용자2', 'TALK', '게시글42', '게시글 테스트b');
+INSERT INTO post (user_nickname, post_type, title, content) VALUES ('사용자3', 'TALK', '게시글43', '게시글 테스트c');
+INSERT INTO post (user_nickname, post_type, title, content) VALUES ('사용자4', 'TALK', '게시글44', '게시글 테스트c');
+INSERT INTO post (user_nickname, post_type, title, content) VALUES ('사용자5', 'TALK', '게시글45', '게시글 테스트c');
+INSERT INTO post (user_nickname, post_type, title, content) VALUES ('사용자1', 'TALK', '게시글46', '게시글 테스트a');
+INSERT INTO post (user_nickname, post_type, title, content) VALUES ('사용자2', 'TALK', '게시글47', '게시글 테스트b');
+INSERT INTO post (user_nickname, post_type, title, content) VALUES ('사용자3', 'TALK', '게시글48', '게시글 테스트c');
+INSERT INTO post (user_nickname, post_type, title, content) VALUES ('사용자4', 'TALK', '게시글49', '게시글 테스트c');
+INSERT INTO post (user_nickname, post_type, title, content) VALUES ('사용자5', 'TALK', '게시글50', '게시글 테스트c');
